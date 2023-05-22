@@ -11,7 +11,8 @@ export class PropertyCardComponent {
     Id: 1,
     Name: "Birla House",
     Type:'House',
-    Price: 120000
+    Price: 120000,
+    Area: '650sqft'
   }
 
 }

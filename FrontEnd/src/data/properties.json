@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "Name": "Birla House",
+    "Type": "House",
+    "Price": 120000,
+    "Area": "650sqft",
+    "imageLocation": "assets/Images/house_default.jpg"
+  },
+  {
+    "Id": 2,
+    "Name": "Erose Villa",
+    "Type": "Villa",
+    "Price": 220000,
+    "Area": "500sqft",
+    "imageLocation": "assets/Images/villa.jpg"
+  },
+  {
+    "Id": 3,
+    "Name": "Micro House",
+    "Type": "House",
+    "Price": 20000,
+    "Area": "550sqft",
+    "imageLocation": "assets/Images/house_default.jpg"
+  },
+  {
+    "Id": 4,
+    "Name": "Macro Home",
+    "Type": "Apartment",
+    "Price": 920000,
+    "Area": "1450sqft",
+    "imageLocation": "assets/Images/apartment.jpg"
+  },
+  {
+    "Id": 5,
+    "Name": " Bhavan",
+    "Type": "Duplex",
+    "Price": 1120000,
+    "Area": "850sqft",
+    "imageLocation": "assets/Images/duplex.jpg"
+  }
+]

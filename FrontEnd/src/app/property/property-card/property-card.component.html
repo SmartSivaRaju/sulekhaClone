@@ -1,8 +1,9 @@
+<!-- <div class="shadow-lg col-sm-4 p-3"> -->
 <div class="card">
   <div class="card-image-wrapper">
     <img class="card-img-top" src={{Property.imageLocation}} alt="Image not found">
     <ul class="list-inline text-center member-icons animate">
-      <li class="list-inline-item"><button><i class="far fa-edit fa-beat-fade"></i></button></li>
+      <li class="list-inline-item"><button routerLink="/property-details/{{Property.Id}}"><i class="far fa-edit fa-beat-fade"></i></button></li>
       <li class="list-inline-item"><button><i class="far fa-address-book fa-beat-fade"></i></button></li>
     </ul>
   </div>
@@ -13,3 +14,4 @@
     <h4>{{ Property.Area}}</h4>
 </div>
 </div>
+<!-- </div> -->

@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit{
-  Properties : Array<any> | any ;
+  Properties: Array<any> = [];
 
   constructor (private http: HttpClient) {}
 
   ngOnInit(): void {
     this.http.get('data/properties.json').subscribe((respone: any )=>{
-      console.warn(respone);
+      console.warn(typeof respone, respone);
       this.Properties = respone;
     })
   }

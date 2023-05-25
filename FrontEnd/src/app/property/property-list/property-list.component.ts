@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SharedServiceService } from 'src/shared/shared-service.service';
 
 @Component({
   selector: 'app-property-list',
@@ -7,14 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit{
+  sellProperty : boolean = true;
   Properties: Array<any> = [];
 
-  constructor (private http: HttpClient) {}
+  constructor (private sharedService: SharedServiceService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.http.get('data/properties.json').subscribe((respone: any )=>{
-      console.warn(typeof respone, respone);
+    if (this.route.snapshot.url.toString()) {
+      this.sellProperty = false;
+    }
+    this.sharedService.getAllProperties(this.sellProperty).subscribe((respone: any )=>{
+      console.warn(this.route.snapshot.url.toString());
       this.Properties = respone;
+    }, error => {
+      console.warn("httpError:",error);
     })
   }
 }

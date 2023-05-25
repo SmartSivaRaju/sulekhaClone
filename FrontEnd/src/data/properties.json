@@ -5,7 +5,8 @@
     "Type": "House",
     "Price": 120000,
     "Area": "650sqft",
-    "imageLocation": "assets/Images/house_default.jpg"
+    "imageLocation": "assets/Images/house_default.jpg",
+    "sell": true
   },
   {
     "Id": 2,
@@ -13,7 +14,8 @@
     "Type": "Villa",
     "Price": 220000,
     "Area": "500sqft",
-    "imageLocation": "assets/Images/villa.jpg"
+    "imageLocation": "assets/Images/villa.jpg",
+    "sell": true
   },
   {
     "Id": 3,
@@ -21,7 +23,8 @@
     "Type": "House",
     "Price": 20000,
     "Area": "550sqft",
-    "imageLocation": "assets/Images/house_default.jpg"
+    "imageLocation": "assets/Images/house_default.jpg",
+    "sell": false
   },
   {
     "Id": 4,
@@ -29,7 +32,8 @@
     "Type": "Apartment",
     "Price": 920000,
     "Area": "1450sqft",
-    "imageLocation": "assets/Images/apartment.jpg"
+    "imageLocation": "assets/Images/apartment.jpg",
+    "sell": true
   },
   {
     "Id": 5,
@@ -37,6 +41,7 @@
     "Type": "Duplex",
     "Price": 1120000,
     "Area": "850sqft",
-    "imageLocation": "assets/Images/duplex.jpg"
+    "imageLocation": "assets/Images/duplex.jpg",
+    "sell": true
   }
 ]

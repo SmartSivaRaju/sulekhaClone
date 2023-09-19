@@ -5,3 +5,9 @@
   border: 1px dashed blue;
   margin: 5px;
 }
+
+.btn-group > label[ng-reflect-btn-radio]{
+  /* border-radius: 0px; */
+  padding: 0 15px;
+  line-height: 30px;
+}

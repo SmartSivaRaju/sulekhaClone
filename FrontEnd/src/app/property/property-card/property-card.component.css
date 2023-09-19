@@ -1,6 +1,20 @@
+.card {
+  min-height: 400px;
+}
+
+.card-body h1 {
+  font-family: fantasy;
+  color: #0069d9;
+}
+
 .card-image-wrapper{
   overflow: hidden;
   position: relative;
+}
+
+.highLight {
+  font-style: italic;
+  color: red;
 }
 
 .card:hover img{

@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedServiceService } from 'src/shared/shared-service.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import { PropertyDetailsComponent } from './property/property-details/property-details.component';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +19,8 @@ import { AlertifyService } from 'src/shared/alertify.service';
 import { UserService } from './user/user.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 const appRoutes: Routes = [
   { path: '', component: PropertyListComponent },
@@ -49,12 +50,13 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    ButtonsModule,
+    ButtonsModule.forRoot(),
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    BsDatepickerModule.forRoot(),
   ],
-  exports: [FormsModule],
+  exports: [],
   providers: [SharedServiceService, AlertifyService, UserService],
   bootstrap: [AppComponent],
 })

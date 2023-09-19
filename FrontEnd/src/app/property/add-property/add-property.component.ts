@@ -7,6 +7,9 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { Property } from 'src/app/model/property';
+import { AlertifyService } from 'src/shared/alertify.service';
+import { SharedServiceService } from 'src/shared/shared-service.service';
 
 @Component({
   selector: 'app-add-property',
@@ -15,10 +18,28 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 })
 export class AddPropertyComponent implements OnInit {
   addNewPropertyForm: FormGroup | any;
+  PropertyDetails = {
+    Name: '',
+    PType: null,
+    Price: null,
+    Area: null,
+    FType: null,
+    BHK: null,
+    BuiltArea: null,
+    City: null,
+    RTM: null,
+  };
+
+  property = new Property();
 
   @ViewChild('formTabs', { static: false }) formTabs?: TabsetComponent;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private sharedService: SharedServiceService,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit() {
     this.addNewPropertyForm = this.createNewPropertyForm();
@@ -26,16 +47,28 @@ export class AddPropertyComponent implements OnInit {
 
   createNewPropertyForm() {
     return this.formBuilder.group({
-      name: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(50),
+      basicInfo: this.formBuilder.group({
+        name: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(50),
+          ],
         ],
-      ],
-      type: ['', Validators.required],
-      price: ['', Validators.required],
+        city: ['', Validators.required],
+        radio: [],
+        bhk: [],
+        pType: [],
+        fType: [],
+      }),
+      priceInfo: this.formBuilder.group({
+        price: ['', Validators.required],
+        builtArea: [],
+      }),
+      readyToMove: [],
+      community: [],
+      gateEntrance: [],
     });
   }
 
@@ -50,7 +83,40 @@ export class AddPropertyComponent implements OnInit {
   }
 
   saveForm() {
-    console.warn(this.addNewPropertyForm);
+    this.mapProperty();
+    if (
+      this.addNewPropertyForm.controls.basicInfo.valid &&
+      this.addNewPropertyForm.controls.priceInfo.valid
+    ) {
+      this.sharedService.saveProperty(this.property);
+      this.alertify.success(
+        'Congrats, you have successfully saved your property!'
+      );
+      if (this.property.SellRent === 2) {
+        this.router.navigate(['/rent-property']);
+      } else {
+        this.router.navigate(['/']);
+      }
+    }
+  }
+
+  mapProperty() {
+    this.property.Name =
+      this.addNewPropertyForm.controls.basicInfo.get('name').value;
+    this.property.SellRent =
+      +this.addNewPropertyForm.controls.basicInfo.get('radio').value;
+    this.property.BHK =
+      this.addNewPropertyForm.controls.basicInfo.get('bhk').value;
+    this.property.City =
+      this.addNewPropertyForm.controls.basicInfo.get('city').value;
+    this.property.PType =
+      this.addNewPropertyForm.controls.basicInfo.get('pType').value;
+    this.property.FType =
+      this.addNewPropertyForm.controls.basicInfo.get('fType').value;
+    this.property.Price =
+      +this.addNewPropertyForm.controls.priceInfo.get('price').value;
+    this.property.BuiltArea =
+      +this.addNewPropertyForm.controls.priceInfo.get('builtArea').value;
   }
 
   cancelForm() {

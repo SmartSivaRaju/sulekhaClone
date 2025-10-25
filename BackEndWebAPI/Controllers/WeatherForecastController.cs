@@ -18,6 +18,7 @@ namespace BackEndWebAPI.Controllers
             _logger = logger;
         }
 
+        // testing teamcity builds
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {

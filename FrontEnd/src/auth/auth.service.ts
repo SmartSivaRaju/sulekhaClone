@@ -7,7 +7,7 @@ import { IUser } from 'src/app/user/IUser';
 export class AuthService {
   constructor() {}
 
-  // auth User test merge
+  // auth User
   authUser(user: IUser) {
     let usersArray = [];
     if (localStorage.getItem('Users')) {

@@ -22,12 +22,14 @@ jobs:
           node-version: 20
 
       - name: Install deps
+        working-directory: FrontEnd
         run: npm install
 
       - name: Build Angular
+        working-directory: FrontEnd
         run: npm run build --configuration production
 
-      # Deploy with service account
+      # Deploy
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:

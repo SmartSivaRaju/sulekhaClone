@@ -23,7 +23,7 @@ jobs:
 
       - name: Install deps
         working-directory: FrontEnd
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build Angular
         working-directory: FrontEnd

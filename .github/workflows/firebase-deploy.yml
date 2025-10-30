@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Angular
         working-directory: FrontEnd
-        run: npm run build --configuration production
+        run: npm run build -- --configuration production
 
       # Deploy
       - name: Deploy to Firebase Hosting
